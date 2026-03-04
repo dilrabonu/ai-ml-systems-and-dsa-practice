@@ -23,7 +23,7 @@ def isValid(s):
             stack.append(char)
     return len(stack) == 0
 
-# Generate Paranthesis
+# Generate Parantheses
 def generateParanthesis(n: int) -> list[str]:
     result = []
 
@@ -38,5 +38,22 @@ def generateParanthesis(n: int) -> list[str]:
             backtrack(current + ')', open_count, close_count +1)
     backtrack('', 0, 0)
     return result
-    
+
+# Longest Valid Parantheses
+def longestValidParantheses(s: str) -> int:
+    stack = [-1]
+    max_len = 0
+
+    for i in range(len(s)):
+        if s[i] == '(':
+            stack.append(i)
+
+        else:
+            stack.pop()
+            if not stack:
+                stack.append(i)
+            else:
+                max_len = max(max_len, i - stack[-1])
+    return max_len
+
 
