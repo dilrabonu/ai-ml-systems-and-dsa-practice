@@ -8,7 +8,7 @@ X = torch.tensor([
     [1., 0.],
     [1., 1.]
 ])
-y = torch.tensor([0., 1., 1., 0.])
+y = torch.tensor([[0.], [1.], [1.], [0.]])
 
 class MLP(nn.Module):
     def __init__(self):
@@ -22,7 +22,7 @@ class MLP(nn.Module):
         x = torch.relu(self.fc1(x))
         x = torch.sigmoid(self.fc2(x))
 
-        return X
+        return x
 
 model = MLP()
 
