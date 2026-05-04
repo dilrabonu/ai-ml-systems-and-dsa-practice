@@ -68,7 +68,13 @@ Small experiments and notebooks used to:
 - Streamlit (for UI prototyping)
 
 ---
+##  Environment Setup
 
+```bash
+conda env create -f environment.yml
+conda activate ai_practice
+
+---
 ##  Purpose
 
 This repository is not a single project, but a **living workspace** where I:
