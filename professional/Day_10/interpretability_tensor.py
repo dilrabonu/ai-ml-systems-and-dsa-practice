@@ -14,7 +14,7 @@ model = tf.keras.Sequential([
     tf.keras.layers.Dense(16, activation='relu', input_shape=(4,)),
     tf.keras.layers.Dense(1, activation='sigmoid')
 ])
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics==['accuracy'])
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 model.fit(X, y, epochs=200, verbose=0)
 
 baseline_loss, baseline_acc = model.evaluate(X, y, verbose=0)
