@@ -20,11 +20,3 @@ def groupAnagrams(strs):
         d[key].append(word)
     
     return list(d.values())
-
-def groupAnagram(strs):
-    d = defaultdict(list)
-    for word in strs:
-        key = "".join(sorted(word))
-        d[key].append(word)
-
-    return list(d.values())
