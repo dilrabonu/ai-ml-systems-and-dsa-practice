@@ -1,3 +1,6 @@
+from mpmath import ninf
+
+
 def length_og_logest_substrings(s):
     last_pos = {}
     left = 0
@@ -24,5 +27,20 @@ def max_sunm_subarray(nums, k):
         best = max(best, window_sum)
 
     return best
+
+def max_sum_subarray(nums, k):
+    n = len(nums)
+    if n < k or k <= 0:
+        return None
+
+    window = sum(nums[:k])
+    best = window
+    
+    for i in range(k, n):
+        window += nums[i] - nums[i-k]
+        best = max(best, window)
+    return best
+
+
 
 
