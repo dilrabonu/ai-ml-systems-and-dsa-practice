@@ -40,7 +40,3 @@ def max_sum_subarray(nums, k):
         window += nums[i] - nums[i-k]
         best = max(best, window)
     return best
-
-
-
-
