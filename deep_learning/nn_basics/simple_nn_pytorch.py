@@ -28,4 +28,25 @@ def train_torch(X_train, y_train, X_test, y_test,
 
     losses = []
     loader = DataLoader(TensorDataset(Xtr, ytr),
-                        batch_size=batch_size, shuffle=True)   
+                        batch_size=batch_size, shuffle=True)
+
+    for epoch in range(epochs):
+        model.train()
+        running = 0.0
+        for xb, yb in loader:
+            optim.zero_grad()
+            logits = model(xb)
+            loss = loss_fn(logits, yb)
+            loss.backward()
+            optim.step()
+            running += loss.item() * xb.size(0)
+        losses.append(running / len(Xtr))
+
+        if verbose and epoch % 100 == 0:
+            model.eval()
+            with torch.no_grad():
+                preds = (torch.sigmoid(model(Xte)) >= 0.5).float()
+                acc = (preds == yte).float().mean().item()
+            print(f"epoch {epoch:4d} | loss {losses[-1]:.4f} | test_acc {acc:.3f}")
+
+    return model, losses  
