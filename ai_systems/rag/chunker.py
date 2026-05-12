@@ -33,3 +33,31 @@ def chunk_by_words(text: str, source: str,
         i += size - overlap
         chunk_id += 1
     return out
+# Strategy sentence window
+_SENT_SPLIT = re.compile(r"(?<=[.!?])\s+(?=[A-Z])")
+
+def chunk_by_sentences(text: str, source: str,
+                       max_chars: int = 1500, overlap_sentences: int = 2) -> List[Chunk]:
+    """ Group whole sentences into -max_chars buckets, with a small sentence overlap.
+    Simple and surprisingly effective. Don't reach for fancy strategies until
+    this proves insufficient on your eval set.
+    """
+    sentences = _SENT_SPLIT.split(text.strip())
+    chunks: list[Chunk] = []
+    buf: list[str] = []
+    cur_len = 0
+    chunk_id = 0
+    for sent in sentences:
+        if cur_len + len(sent) > max_chars and buf:
+            chunks.append(Chunk(text="".join(buf), source=source,
+                                chunk_id=chunk_id, char_start=-1))
+            chunk_id += 1
+            buf = buf[-overlap_sentences:]  # carry over last N sentences
+            cur_len = sum(len(s) + 1 for s in buf)
+        buf.append(sent)
+        cur_len += len(sent) + 1
+    
+    if buf:
+        chunks.append(Chunk(text="".join(buf), source=source,
+                            chunk_id=chunk_id, char_start=-1))
+    return chunks
