@@ -61,3 +61,33 @@ def chunk_by_sentences(text: str, source: str,
         chunks.append(Chunk(text="".join(buf), source=source,
                             chunk_id=chunk_id, char_start=-1))
     return chunks
+
+# Strategy semantic 
+def chunk_semantic(text: str, source: str, embedder, 
+                    threshold: float = 0.75) -> List[Chunk]:
+    """Split where consecutive sentences become semantically dissimilar.
+
+    This is the highest-quality strategy for unstructured prose, at the cost
+    of running the embedder twice (once during chunking, once for indexing).
+    """
+    sentences = _SENT_SPLIT.split(text.strip())
+    if not sentences:
+        return []
+    sent_embs = embedder.encode(sentences, normalize_embeddings=True)
+    chunks: list[Chunk] = []
+    buf: list[str] = [sentences[0]]
+    chunk_id = 0
+    for i in range(1, len(sentences)):
+        sim = float(sent_embs[i] @ sent_embs[i - 1])
+        if sim < threshold:
+            chunks.append(Chunk(text="".join(buf), source=source,
+                                chunk_id=chunk_id, char_start=-1))
+            chunk_id += 1
+            buf = [sentences[i]]
+        else:
+            buf.append(sentences[i])
+
+    if buf:
+        chunks.append(Chunk(text="".join(buf), source=source,
+                            chunk_id=chunk_id, char_start=-1))
+    return chunks
