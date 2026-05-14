@@ -14,3 +14,6 @@ print(even)
 # lambda:
 square = lambda x: x ** 2
 print(square(5))
+students = [("Akmal", 45), ("Dilya", 92), ("Benny", 78)]
+sorted_students = sorted(students, key=lambda student: student[1])
+print(sorted_students)
