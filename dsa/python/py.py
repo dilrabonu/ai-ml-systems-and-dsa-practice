@@ -69,3 +69,29 @@ def train_epoch():
     return "done"
 
 train_epoch()
+
+import time
+
+def timer(func):
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+        print(f"{func.__name__} took {end - start} seconds")
+        return result
+    return wrapper
+
+@timer
+def train_epoch():
+    time.sleep(1)
+    return "done"
+train_epoch()
+
+# Error handling
+
+try:
+    num = int("hello")
+    print("Changed", num)
+except ValueError:
+    print("Wrong: this is not a number")
+print("The program is continueing ...")
