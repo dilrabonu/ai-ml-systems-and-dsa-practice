@@ -17,3 +17,13 @@ print(square(5))
 students = [("Akmal", 45), ("Dilya", 92), ("Benny", 78)]
 sorted_students = sorted(students, key=lambda student: student[1])
 print(sorted_students)
+
+# enumerate
+fruits = ["apple", "cherry", "pear", "peach"]
+i = 0
+for fruit in fruits:
+    print(i, fruit)
+    i += 1
+
+for i, fruit in enumerate(fruits):
+    print(i, fruit)
