@@ -27,3 +27,10 @@ for fruit in fruits:
 
 for i, fruit in enumerate(fruits):
     print(i, fruit)
+
+# zip
+names = ["Abbos", "Ali", "Vali"]
+ages = [31, 41, 51]
+
+for name, age in zip(names, ages):
+    print(f"{name} - {age} years old") 
