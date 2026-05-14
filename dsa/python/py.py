@@ -34,3 +34,18 @@ ages = [31, 41, 51]
 
 for name, age in zip(names, ages):
     print(f"{name} - {age} years old") 
+
+class Car:
+    def __init__(self, colour, brend, cost):
+        self.colour = colour
+        self.brend = brend
+        self.cost = cost
+
+    def run(self):
+        print(f"{self.colour} {self.brend} is running")
+
+    def info(self):
+        print(f"{self.colour} {self.brend} is {self.cost} so'm")
+
+car1 = Car("Black", "BMW", 50000)
+car1.info()
