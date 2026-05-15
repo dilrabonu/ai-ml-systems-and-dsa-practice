@@ -160,3 +160,5 @@ with open("info", "w") as file:
 with open("info", "r") as file:
     for f in file:
         print(f.strip())
+with open("info", "a") as file:
+    file.write("This does not remove the old info because you are using 'a' method!")
