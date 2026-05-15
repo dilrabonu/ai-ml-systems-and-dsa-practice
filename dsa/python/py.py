@@ -143,3 +143,17 @@
 with open("info.txt", "r") as file:
     content = file.read()
     print(content)
+with open("info1.txt", "r") as file:
+    content = file.read()
+    print(content)
+
+# for 
+with open("information.txt", "r") as file:
+    for f in file:
+        print(f.strip())
+
+# writing
+with open("info", "w") as file:
+    file.write("Salom!\n")
+    file.write("this is second row.\n")
+    
