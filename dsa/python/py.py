@@ -112,3 +112,13 @@ def predict(features: list[float], threshold: float = 0.5) -> dict[str, float]:
 
 def load_model(path: str) -> Optional[str]:
     return None
+
+# Pandas
+import pandas as pd
+
+# DataFrame - like a spreadsheet / SQL table
+df = pd.DataFrame({
+    "age": [25, 30, 35, 40],
+    "salary": [50000, 60000, 70000, 80000],
+    "dept": ["eng", "eng", "sales", "sales"]
+})
