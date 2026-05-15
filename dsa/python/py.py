@@ -122,3 +122,19 @@ df = pd.DataFrame({
     "salary": [50000, 60000, 70000, 80000],
     "dept": ["eng", "eng", "sales", "sales"]
 })
+df.head()
+df.info()
+df.describe()
+
+df["age"]
+df[["age", "salary"]]
+df[df["age"] > 30]
+df.isnull().sum()
+df.fillna(0)
+df.dropna()
+
+df.groupby("dept")["salary"].mean()
+
+df["bonus"] = df["salary"] * 0.1
+
+df["age_group"] = df["age"].apply(lambda x: "young" if x< 32 else "senior")
