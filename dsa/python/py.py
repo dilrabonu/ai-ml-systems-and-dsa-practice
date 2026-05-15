@@ -95,3 +95,20 @@ try:
 except ValueError:
     print("Wrong: this is not a number")
 print("The program is continueing ...")
+
+try:
+    num = int(input("Enter a number: "))
+    natija = 100 / num
+    print(natija)
+except ValueError:
+    print(" This is no any number")
+except ZeroDivisionError:
+    print("It can not be divided 0")
+
+# Type Hints
+from typing import Optional
+def predict(features: list[float], threshold: float = 0.5) -> dict[str, float]:
+    return {"score": 0.9}
+
+def load_model(path: str) -> Optional[str]:
+    return None
