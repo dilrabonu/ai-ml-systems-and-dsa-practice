@@ -27,3 +27,12 @@ def file_stream(path):
     with open(path, "r", encoding="utf-8") as file:
         for line in file:
             yield line.strip()
+
+# stream, async, generator
+import asyncio
+async def server_streami():
+    """ It shows splitting info from server"""
+    splits = ["Salom", "-this", "streaming", "through", "coming"]
+    for split in splits:
+        await asyncio.sleep(0.5)
+        yield split
