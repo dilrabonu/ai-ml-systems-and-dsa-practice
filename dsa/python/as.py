@@ -17,4 +17,13 @@ async def summarize_documents(documents):
     ]
     summaries = await asyncio.gather(*tasks)
     return summaries
+
+my_docs = ["doc1", "doc2", "doc3"]
 summaries = asyncio.run(summarize_documents(my_docs))
+print(summaries)
+
+
+def file_stream(path):
+    with open(path, "r", encoding="utf-8") as file:
+        for line in file:
+            yield line.strip()
