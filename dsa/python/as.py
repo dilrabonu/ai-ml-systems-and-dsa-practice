@@ -36,3 +36,19 @@ async def server_streami():
     for split in splits:
         await asyncio.sleep(0.5)
         yield split
+async def response_model(request):
+    tokens = ["Python", "-", "is ", "wonderful", "programming" "language", "."]
+    for token in tokens:
+        await asyncio.sleep(0.3)
+        yield token
+    
+async def main():
+    request = "Tell about the Python?"
+    print(f"Question: {request}")
+    print(f"Answer: ", end="", flush=True)
+    async for token in response_model(request):
+        print(token, end="", flush=True)
+
+    print()
+
+asyncio.run(main())
