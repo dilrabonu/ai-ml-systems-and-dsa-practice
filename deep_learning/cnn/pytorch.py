@@ -12,6 +12,10 @@ class SimpleClassifier(nn.Module):
         self.net = nn.Sequential(
             nn.Linear(in_dim, hidden),
             nn.ReLU(),
-            nn.Dropout
+            nn.Dropout(0.2),
+            nn.Linear(hidden, n_classes),
         )
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return self.net(x)
+
 
