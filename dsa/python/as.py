@@ -105,3 +105,14 @@ print(f"Dictionary size: {len(words)}")
 stop_words = {"and", "with", "for", "too"} # set
 clean = [s for s in words if s not in stop_words] # check with 0(1)
 print(f"Clean size: {len(clean)}")
+
+# dict in ML
+# configuration
+config = {
+    "learning_rate": 0.001,
+    "batch_size": 32,
+    "epochs": 50,
+    "hidden_size": 256,
+}
+loss = train(config["learning_rate"], config["batch_size"], config["epochs"], config["hidden_size"])
+
