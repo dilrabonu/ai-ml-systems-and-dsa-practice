@@ -1,4 +1,5 @@
 import asyncio
+from multiprocessing import current_process
 
 async def call_llm(client, prompt):
     response = await client.message.create(
@@ -52,3 +53,19 @@ async def main():
     print()
 
 asyncio.run(main())
+
+# Iterator
+class Count:
+    def __init__(self, last):
+        self.current = 0
+        self.last = current
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.current >= self.last:
+            raise StopIteration
+        value = self.current
+        self.current += 1
+        return value
