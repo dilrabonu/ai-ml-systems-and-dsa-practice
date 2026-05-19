@@ -9,4 +9,9 @@ print(x.grad)
 class SimpleClassifier(nn.Module):
     def __init__(self, in_dim: int, hidden: int, n_classes: int):
         super().__init__()
-        
+        self.net = nn.Sequential(
+            nn.Linear(in_dim, hidden),
+            nn.ReLU(),
+            nn.Dropout
+        )
+
