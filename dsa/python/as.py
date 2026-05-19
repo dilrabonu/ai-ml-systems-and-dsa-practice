@@ -90,3 +90,13 @@ def info_give(data):
 train, test = info_give(all_data)
 # !!! tuple can be dict but list can't
 values = {(0, 0): 1.5, (0, 1): 2.3} # tuple is key
+
+# Set in Ml to switch off repetition samples
+clean_text = set(all_text)
+print(f"{len(all_text)} from {len(clean_text)} left.")
+
+# Nlp word/unique category
+words = set()
+for sentence in text:
+    words.update(sentence.split())  # unique words gathered here
+print(f"Dictionary size: {len(words)}")
