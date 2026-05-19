@@ -18,4 +18,6 @@ class SimpleClassifier(nn.Module):
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         return self.net(x)
 
+model = SimpleClassifier(in_dim=768, hidden=256, n_classes=10)
+
 
