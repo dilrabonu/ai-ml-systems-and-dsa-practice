@@ -69,3 +69,9 @@ class Count:
         value = self.current
         self.current += 1
         return value
+
+# List in ML
+losses = []
+for epoch in range(50):
+    loss = train.step()
+    losses.append(loss)
