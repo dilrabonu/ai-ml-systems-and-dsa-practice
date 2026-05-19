@@ -79,3 +79,12 @@ for epoch in range(50):
 # tuple immutable, order in ML tensor with shape
 picture.shape # (224, 224, 3)- height, width, channels
 batch.shape    # ( 32, 224, 224, 3) - 32 picture
+
+for picture, batch in train_loader:
+    preds = model(picture)
+
+# several values in function
+def info_give(data):
+    return train_split, test_split
+
+train, test = info_give(all_data)
