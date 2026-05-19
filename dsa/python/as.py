@@ -88,3 +88,5 @@ def info_give(data):
     return train_split, test_split
 
 train, test = info_give(all_data)
+# !!! tuple can be dict but list can't
+values = {(0, 0): 1.5, (0, 1): 2.3} # tuple is key
