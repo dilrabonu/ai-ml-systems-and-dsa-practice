@@ -70,8 +70,12 @@ class Count:
         self.current += 1
         return value
 
-# List in ML
+# List in ML in epoch, batch, gather all
 losses = []
 for epoch in range(50):
     loss = train.step()
     losses.append(loss)
+
+# tuple immutable, order in ML tensor with shape
+picture.shape # (224, 224, 3)- height, width, channels
+batch.shape    # ( 32, 224, 224, 3) - 32 picture
