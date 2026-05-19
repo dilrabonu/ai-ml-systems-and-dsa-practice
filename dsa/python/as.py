@@ -100,3 +100,8 @@ words = set()
 for sentence in text:
     words.update(sentence.split())  # unique words gathered here
 print(f"Dictionary size: {len(words)}")
+
+# fast check in set
+stop_words = {"and", "with", "for", "too"} # set
+clean = [s for s in words if s not in stop_words] # check with 0(1)
+print(f"Clean size: {len(clean)}")
