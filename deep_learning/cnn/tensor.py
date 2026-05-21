@@ -10,3 +10,6 @@ print(b.shape)
 print(a + 1) # 1 adds for each elements
 print(a * 2) # 2 multiplies for each elements
 print(b @ b) # matrix multiplication
+
+zeros = torch.zeros(2, 3) # 2*3 zero matrix
+random = torch.randn(2, 3)  # 2*3 random numbers
