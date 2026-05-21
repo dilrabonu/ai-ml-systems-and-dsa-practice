@@ -13,3 +13,12 @@ print(b @ b) # matrix multiplication
 
 zeros = torch.zeros(2, 3) # 2*3 zero matrix
 random = torch.randn(2, 3)  # 2*3 random numbers
+
+# automatic gradient
+x = torch.tensor(3.0, requires_grad=True)
+
+y = x ** 2 + 2 * x
+
+y.backward()
+
+print(x.grad)
