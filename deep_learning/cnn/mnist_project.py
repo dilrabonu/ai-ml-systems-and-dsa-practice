@@ -60,6 +60,11 @@ transform = transforms.Compose([
 ])
 
 # Train to learn model
-
+train_dataset = dataset.MNIST(
+    root="./data",   # where to save the (data folder)
+    train=True,      #training data
+    download=True,   #download data if not exist
+    transform=transform,  #apply transforms
+)
 
 
