@@ -166,22 +166,42 @@ def epoch_train(model, loader, loss_fn, optimizer, device):
     5) optimizer.step - update weights
 
 """
-model.train()
-total_loss = 0
-correct_sum = 0
-total_samples = 0
+    model.train()
+    total_loss = 0
+    correct_sum = 0
+    total_samples = 0
 
-for X_batch, y_batch in loader:
-    X_batch = X_batch.to(device)
-    y_batch = y_batch.to(device)
+    for X_batch, y_batch in loader:
+        X_batch = X_batch.to(device)
+        y_batch = y_batch.to(device)
 
-    # here main 5 steps
-    pred = model(X_batch)   # forward
-    loss = loss_fn(pred, y_batch)  # claculate loss
+        # here main 5 steps
+        pred = model(X_batch)   # forward
+        loss = loss_fn(pred, y_batch)  # claculate loss
 
-    optimizer.zer_grad()    # clean old gradient
-    loss.backward()         # calculate new gradient
-    optimizer.step()        # update weights
+        optimizer.zer_grad()    # clean old gradient
+        loss.backward()         # calculate new gradient
+        optimizer.step()        # update weights
 
-    # We gather for statistics
+        # We gather for statistics
+        total_loss += loss.item() * X_batch.size(0)
+        appro = pred.argmax(dim=1)   # choose the highest probability
+        correct_sum += (appro == y_batch).sum().item()
+        total_samples += X_batch.size(0)
+
+    avg_loss = total_loss / total_samples
+    accuracy = correct_sum / total_samples
+    return avg_loss, accuracy
+
+def evaluate(model, loader, loss_fn, device):
+    """
+    Model evaluation on  test data(without neasuring gradient)
+    """
+    model.eval()
+    total_loss = 0
+    correct_sum = 0
+    total_samples = 0
+
+    # torch.no_grad() - context manager
+    # disables gradient calculation for faster computation
     
