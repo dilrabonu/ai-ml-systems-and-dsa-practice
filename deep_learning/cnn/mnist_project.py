@@ -60,7 +60,7 @@ transform = transforms.Compose([
 ])
 
 # Train to learn model
-train_dataset = dataset.MNIST(
+train_dataset = datasets.MNIST(
     root="./data",   # where to save the (data folder)
     train=True,      #training data
     download=True,   #download data if not exist
@@ -68,7 +68,7 @@ train_dataset = dataset.MNIST(
 )
 
 # Test for evaluate the model( this part is not seen by model)
-test_dataset = dataset.MNIST(
+test_dataset = datasets.MNIST(
     root="./data", 
     train=False,    # test data
     download=True,  # download data if not exist
@@ -77,4 +77,16 @@ test_dataset = dataset.MNIST(
 
 print(f"Train : {len(train_dataset)} pictures")
 print(f"Test: {len(test_dataset)} pictures")
+
+train_loader = DataLoader(
+    train_dataset,
+    batch_size=settings['batch_size'],
+    shuffle=True,
+)
+
+test_loader = DataLoader(
+    test_dataset,
+    batch_size=settings["batch_size"],
+    shuffle=False,
+)
 
