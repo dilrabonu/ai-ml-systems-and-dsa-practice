@@ -15,5 +15,12 @@ Steps:
 4. Load Data
 5. Create Model
 6. Loss function and optimizer
-7. 
+7. Train and evaluate
+8. The main train step epoch
+9. Save Model
+10. Test Model and Predict
+
+# Install PyTorch and torchvision
+pip install torch torchvision
+python mnist_project.py
 """
