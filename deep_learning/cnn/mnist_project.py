@@ -135,3 +135,34 @@ print(model)
 # How many parameters in model
 total_param = sum(p.numel() for p in model.parameters())
 print(f"\nTotal sums of parameters: {total_param:, }")
+
+# Step 6 Loss function and optimizer
+
+"""
+Loss function - measure how wrong model is
+- CrossEntropyLoss - for classification
+- MSELoss - for regression
+- L1Loss - for regression
+"""
+loss_fn = nn.CrossEntropyLoss()
+
+"""
+Optimizer - update weights in model
+- SGD - simple optimizer
+- Adam - adaptive optimizer it can measure learning rate
+- RMSprop - adaptive optimizer
+"""
+optimizer = optim.Adam(model.parameters(), lr=settings["learning_rate"])
+
+# 7 Step: Train and Evaluate functions
+def epoch_train(model, loader, loss_fn, optimizer, device):
+    """
+    During one epoch model learns from data
+    Train process with 5 steps:
+    1) forward - model makes answer
+    2) loss - calculate loss
+    3) zero_grad - clean old gradients
+    4) backward - measure new gradient
+    5) optimizer.step - update weights
+
+"""
