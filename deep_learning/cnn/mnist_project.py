@@ -67,4 +67,12 @@ train_dataset = dataset.MNIST(
     transform=transform,  #apply transforms
 )
 
+# Test for evaluate the model( this part is not seen by model)
+test_dataset = dataset.MNIST(
+    root="./data", 
+    train=False,    # test data
+    download=True,  # download data if not exist
+    transform=transform,  # apply transforms
+)
+
 
