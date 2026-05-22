@@ -90,3 +90,15 @@ test_loader = DataLoader(
     shuffle=False,
 )
 
+# 5 Step: Create Model
+"""
+nn.Module - PyTorch base class for all neural networks
+3 layers
+Input 784 (28*28 pixels = 784)
+1 - layer 784 -> 128 (hidden layer)
+2 - layer 128 -> 64 (hidden layer)
+Output 64 -> 10 (for 10 classes - digits 0-9)
+"""
+class DigitRecognize(nn.Module):
+    def __init__(self, hidden_size: int = 128):
+        super().__init__()
