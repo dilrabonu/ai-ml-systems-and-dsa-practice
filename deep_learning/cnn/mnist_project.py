@@ -120,4 +120,18 @@ class DigitRecognize(nn.Module):
         forward information will flow inside Model
         This function work automatically when we call input
         """
-        x = self.flatten(x)
+        x = self.flatten(x) # picture 28*28 to 784 vactor
+        x = self.layer1(x)  # 1 layer passed
+        x = self.relu(x)    # activation function negative values to 0
+        x = self.layer2(x)  # 2 layer passed
+        x = self.relu(x)    # activation function
+        x = self.layer3(x)  # 3 layer passed and 10 classes
+        return x
+
+model = DigitRecognize(hidden_size=settings['hidden_size']).to(device)
+print("\nModel structure:")
+print(model)
+
+# How many parameters in model
+total_param = sum(p.numel() for p in model.parameters())
+print(f"\nTotal sums of parameters: {total_param:, }")
