@@ -101,4 +101,23 @@ Output 64 -> 10 (for 10 classes - digits 0-9)
 """
 class DigitRecognize(nn.Module):
     def __init__(self, hidden_size: int = 128):
-        super().__init__()
+        super().__init__()  
+        # Flatten 28*28 to 784 convert to 1 vector
+        self.flatten = nn.Flatten()
+
+        #nn.Linear = matrix multiplication  layer
+        # there are output= input @ weight + bias 
+        self.layer1 = nn.Linear(28*28, hidden_size)  # 784 -> 128
+        self.layer2 = nn.Linear(hidden_size, 64)     # 128 -> 64
+        self.layer3 = nn.Linear(64, 10)              # 64 -> 10 (number of classes)
+
+        # ReLU - activation function - negative values to 0, positive not changed max(0, x)
+        # This helps model to learn complex patterns
+        self.relu = nn.ReLU()
+
+    def forward(self, x):
+        """
+        forward information will flow inside Model
+        This function work automatically when we call input
+        """
+        x = self.flatten(x)
