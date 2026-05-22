@@ -44,3 +44,5 @@ settings = {
     "epochs": 5,    # Number of epochs to train the model
     "hidden_size": 128, # Number of neurons in the hidden layer
 }
+print(f"Settings: {settings}")
+
