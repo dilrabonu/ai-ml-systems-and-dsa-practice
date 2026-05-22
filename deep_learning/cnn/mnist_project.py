@@ -204,4 +204,21 @@ def evaluate(model, loader, loss_fn, device):
 
     # torch.no_grad() - context manager
     # disables gradient calculation for faster computation
-    
+    with torch.no_grad():
+        for X_batch, y_batch in loader:
+            X_batch = X_batch.to(device)
+            y_batch = y_batch.to(device)
+
+            pred = model(X_batch)
+            loss = loss_fn(pred, y_batch)
+
+            total_loss += loss.item() * X_batch.size(0)
+            appro = pred.argmax(dim=1)
+            correct_sum += (appro == y_batch).sum().item()
+            total_samples += X_batch.size(0)
+
+    avg_loss = total_loss / total_samples
+    accuracy = correct_sum / total_samples
+    return avg_loss, accuracy
+
+# 8 Step Train process
