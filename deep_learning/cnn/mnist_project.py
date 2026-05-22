@@ -46,3 +46,20 @@ settings = {
 }
 print(f"Settings: {settings}")
 
+# 4 Step: Load Data
+"""
+transform - Transform the data to tensors and normalize it
+
+ToTensor() - Convert the data to tensors - from 0-255 to 0-1
+Normalize() - Normalize the data - subtract mean and divide by standard deviation
+"""
+
+transform = transforms.Compose([
+    transforms.ToTensor(),
+    transforms.Normalize((0.1307,), (0.3081,)),
+])
+
+# Train to learn model
+
+
+
