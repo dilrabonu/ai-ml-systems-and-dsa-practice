@@ -75,4 +75,6 @@ test_dataset = dataset.MNIST(
     transform=transform,  # apply transforms
 )
 
+print(f"Train : {len(train_dataset)} pictures")
+print(f"Test: {len(test_dataset)} pictures")
 
