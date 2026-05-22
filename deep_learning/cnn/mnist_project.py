@@ -36,3 +36,11 @@ from torchvision import datasets, transforms
 # 2 Step Choose Device
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using: {device}")
+
+# 3 Step Setting Hyperparameters
+settings = {
+    "batch_size": 64,   # Number of images to process at once
+    "learning_rate": 0.001, # Learning rate for the optimizer
+    "epochs": 5,    # Number of epochs to train the model
+    "hidden_size": 128, # Number of neurons in the hidden layer
+}
