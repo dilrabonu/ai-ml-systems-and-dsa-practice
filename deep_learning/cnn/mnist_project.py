@@ -254,3 +254,9 @@ print("Model loaded again")
 print("\nPrediction several test samples:")
 print("-" * 50)
 
+with torch.no_grad():
+    X_sample, y_real = next(iter(test_loader))
+    X_sample = X_sample.to(device)
+
+    pred = new_model(X_sample)
+    y_appro = pred.argmax(dim=1).cpu()
