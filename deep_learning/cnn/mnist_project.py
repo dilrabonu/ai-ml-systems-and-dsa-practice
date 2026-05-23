@@ -225,3 +225,16 @@ def evaluate(model, loader, loss_fn, device):
 # model learn each epoch and evaluate after each epoch
 print("\n" + "=" *70)
 print("Train Started")
+print("=" * 70)
+
+for epoch in range(1, settings["epochs"] + 1):
+    train_loss, train_acc = epoch_train(model, train_loader, loss_fn, optimizer, device)
+    test_loss, test_acc = evaluate(model, test_loader, loss_fn, device)
+
+    print(f"Epoch {epoch}/{settings['epochs']} |"
+        f" Train: loss={train_loss:.4f}, accuracy={train_acc:.2%} |"
+        f" Test: loss={test_loss:.4f}, accuracy={test_acc:.2%}")
+
+print("=" * 70)
+print("Train tugadi")
+print("=" * 70)
