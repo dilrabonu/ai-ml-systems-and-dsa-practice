@@ -249,3 +249,8 @@ new_model = DigitRecognize(hidden=settings['hidden_size']).to(device)
 new_model.load_state_dict(torch.load('mnist_model.pth'))
 new_model.eval()
 print("Model loaded again")
+
+# Predict several test samples
+print("\nPrediction several test samples:")
+print("-" * 50)
+
