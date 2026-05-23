@@ -260,3 +260,10 @@ with torch.no_grad():
 
     pred = new_model(X_sample)
     y_appro = pred.argmax(dim=1).cpu()
+
+    for i in range(10):
+        symbol = "✓" if y_appro[i].item() == y_real[i].item() else "✗"
+        print(f"Sample {i+1}: Predicted={y_appro[i].item()}, Actual={y_real[i].item()} {symbol}")
+
+print("-" * 50)
+print("\nProject successfully finished!")
