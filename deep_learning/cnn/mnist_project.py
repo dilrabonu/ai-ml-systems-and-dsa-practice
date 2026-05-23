@@ -238,3 +238,8 @@ for epoch in range(1, settings["epochs"] + 1):
 print("=" * 70)
 print("Train tugadi")
 print("=" * 70)
+
+# 9 Step save the model
+
+torch.save(model.state_dict(), "mnist_model.pth")
+print("\nModel 'mnist_model.pth' saved to current directory")
