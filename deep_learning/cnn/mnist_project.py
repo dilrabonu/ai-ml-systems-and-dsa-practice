@@ -134,7 +134,7 @@ print(model)
 
 # How many parameters in model
 total_param = sum(p.numel() for p in model.parameters())
-print(f"\nTotal sums of parameters: {total_param:, }")
+print(f"\nTotal sums of parameters: {total_param:,}")
 
 # Step 6 Loss function and optimizer
 
@@ -179,7 +179,7 @@ def epoch_train(model, loader, loss_fn, optimizer, device):
         pred = model(X_batch)   # forward
         loss = loss_fn(pred, y_batch)  # claculate loss
 
-        optimizer.zer_grad()    # clean old gradient
+        optimizer.zero_grad()    # clean old gradient
         loss.backward()         # calculate new gradient
         optimizer.step()        # update weights
 
@@ -245,7 +245,7 @@ torch.save(model.state_dict(), "mnist_model.pth")
 print("\nModel 'mnist_model.pth' saved to current directory")
 
 # 10 Step load the model
-new_model = DigitRecognize(hidden=settings['hidden_size']).to(device)
+new_model = DigitRecognize(hidden_size=settings['hidden_size']).to(device)
 new_model.load_state_dict(torch.load('mnist_model.pth'))
 new_model.eval()
 print("Model loaded again")
