@@ -222,3 +222,6 @@ def evaluate(model, loader, loss_fn, device):
     return avg_loss, accuracy
 
 # 8 Step Train process
+# model learn each epoch and evaluate after each epoch
+print("\n" + "=" *70)
+print("Train Started")
