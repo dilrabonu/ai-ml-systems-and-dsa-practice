@@ -243,3 +243,9 @@ print("=" * 70)
 
 torch.save(model.state_dict(), "mnist_model.pth")
 print("\nModel 'mnist_model.pth' saved to current directory")
+
+# 10 Step load the model
+new_model = DigitRecognize(hidden=settings['hidden_size']).to(device)
+new_model.load_state_dict(torch.load('mnist_model.pth'))
+new_model.eval()
+print("Model loaded again")
