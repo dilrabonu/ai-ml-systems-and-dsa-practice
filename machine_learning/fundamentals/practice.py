@@ -76,3 +76,5 @@ for nom, model in modellar.items():
     print(f"  Train R²: {train_r2:.3f} | Test R²: {test_r2:.3f}")
     print(f"  Nolga teng koeffitsientlar: {nolga_teng}/100")
     print()
+
+# Dropout
