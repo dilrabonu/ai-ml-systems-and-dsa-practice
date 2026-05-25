@@ -1,0 +1,28 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import LinearRegression
+from sklearn.pipeline import make_pipeline
+
+# Sun'iy ma'lumot yaratamiz: y = sin(x) + biroz shovqin
+np.random.seed(42)
+X = np.sort(np.random.rand(30, 1) * 6, axis=0)
+y = np.sin(X).ravel() + np.random.randn(30) * 0.2
+
+# 3 xil murakkablikdagi model sinaymiz
+darajalar = [1, 4, 15]  # polynomial degree
+nomlari = ["Underfitting (Bias yuqori)", 
+           "Yaxshi balans", 
+           "Overfitting (Variance yuqori)"]
+
+X_test = np.linspace(0, 6, 100).reshape(-1, 1)
+
+for daraja, nom in zip(darajalar, nomlari):
+    model = make_pipeline(
+        PolynomialFeatures(daraja),
+        LinearRegression()
+    )
+    model.fit(X, y)
+    
+    train_score = model.score(X, y)
+    print(f"{nom}: Train R² = {train_score:.3f}")
