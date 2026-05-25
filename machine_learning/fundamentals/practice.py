@@ -78,3 +78,16 @@ for nom, model in modellar.items():
     print()
 
 # Dropout
+import torch.nn as nn
+
+class Model(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.fc1 = nn.Linear(784, 256)
+        self.dropout = nn.Dropout(p=0.5)    # 50% neyronlarni o'chir
+        self.fc2 = nn.Linear(256, 10)
+    
+    def forward(self, x):
+        x = torch.relu(self.fc1(x))
+        x = self.dropout(x)                  # faqat train paytida ishlaydi
+        return self.fc2(x)
