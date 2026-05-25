@@ -44,3 +44,33 @@ def diagnostika(train_err, test_err, baseline_err=0.1):
         return "YAXSHI MODEL"
     else:
         return "Kodni tekshir, nimadir noto'g'ri"
+
+from sklearn.linear_model import LinearRegression, Ridge, Lasso
+from sklearn.datasets import make_regression
+from sklearn.model_selection import train_test_split
+import numpy as np
+
+# 100 ta feature'li ma'lumot, faqat 10 tasi haqiqatan muhim
+X, y, true_coef = make_regression(
+    n_samples=200, n_features=100, n_informative=10,
+    noise=10, coef=True, random_state=42
+)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
+
+modellar = {
+    "Regularizationsiz": LinearRegression(),
+    "Ridge (L2, λ=1)": Ridge(alpha=1.0),
+    "Ridge (L2, λ=10)": Ridge(alpha=10.0),
+    "Lasso (L1, λ=1)": Lasso(alpha=1.0),
+}
+
+for nom, model in modellar.items():
+    model.fit(X_train, y_train)
+    train_r2 = model.score(X_train, y_train)
+    test_r2 = model.score(X_test, y_test)
+    nolga_teng = np.sum(np.abs(model.coef_) < 0.01)
+    
+    print(f"{nom}")
+    print(f"  Train R²: {train_r2:.3f} | Test R²: {test_r2:.3f}")
+    print(f"  Nolga teng koeffitsientlar: {nolga_teng}/100")
+    print()
