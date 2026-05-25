@@ -26,3 +26,21 @@ for daraja, nom in zip(darajalar, nomlari):
     
     train_score = model.score(X, y)
     print(f"{nom}: Train R² = {train_score:.3f}")
+
+# Oddiy qoida:
+# Train_error  Test_error    Muammo                Yechim
+# ─────────────────────────────────────────────────────────────────
+# Yuqori       Yuqori        Underfitting (Bias)   Modelni murakkab qil
+# Past         Yuqori        Overfitting (Var)     Regularization, ko'p ma'lumot
+# Past         Past          Ideal                 Hech narsa qilma :)
+# Yuqori       Past          Bug bor               Kodni tekshir!
+
+def diagnostika(train_err, test_err, baseline_err=0.1):
+    if train_err > baseline_err and test_err > baseline_err:
+        return "UNDERFITTING - modelni kuchaytir"
+    elif train_err < baseline_err and test_err > baseline_err * 2:
+        return "OVERFITTING - regularization qo'sh"
+    elif train_err < baseline_err and test_err < baseline_err * 1.5:
+        return "YAXSHI MODEL"
+    else:
+        return "Kodni tekshir, nimadir noto'g'ri"
