@@ -59,3 +59,14 @@ print(f"F1-score:  {f1_score(y_te, y_pred):.3f}")
 print(f"ROC-AUC:   {roc_auc_score(y_te, y_proba):.3f}")
 print()
 print(classification_report(y_te, y_pred))
+
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+import numpy as np
+
+y_true = np.array([100, 200, 300, 400, 500])     # haqiqiy uy narxlari (ming$)
+y_pred = np.array([110, 190, 320, 380, 510])
+
+print(f"MAE:  {mean_absolute_error(y_true, y_pred):.1f} ming$")
+print(f"MSE:  {mean_squared_error(y_true, y_pred):.1f}")
+print(f"RMSE: {np.sqrt(mean_squared_error(y_true, y_pred)):.1f} ming$")
+print(f"R²:   {r2_score(y_true, y_pred):.3f}")
