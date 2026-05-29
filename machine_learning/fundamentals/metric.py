@@ -105,3 +105,16 @@ model.fit(X, y)
 
 print(f"Tenglama: narx = {model.coef_[0]:.2f} × maydon + {model.intercept_:.2f}")
 print(f"100 m² uy: {model.predict([[100]])[0]:.1f} ming$")
+
+from sklearn.linear_model import LogisticRegression
+from sklearn.datasets import load_breast_cancer
+
+data = load_breast_cancer()
+X, y = data.data, data.target
+
+model = LogisticRegression(max_iter=5000)
+model.fit(X, y)
+
+# Birinchi 5 ta feature'ning ahamiyati
+for nom, koef in zip(data.feature_names[:5], model.coef_[0][:5]):
+    print(f"{nom}: {koef:.3f}")
