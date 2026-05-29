@@ -80,3 +80,15 @@ final_model.fit(
 # 5-qadam: TEST'da FAQAT BIR MARTA sinaymiz
 test_score = final_model.score(X_test, y_test)
 print(f"\nYakuniy test natija: {test_score:.3f}")
+
+from sklearn.model_selection import cross_val_score, StratifiedKFold
+
+cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+scores = cross_val_score(
+    RandomForestClassifier(n_estimators=100),
+    X_temp, y_temp,    # test'ni ALOHIDA saqlaymiz!
+    cv=cv,
+    scoring='f1'
+)
+
+print(f"CV F1: {scores.mean():.3f} ± {scores.std():.3f}")
