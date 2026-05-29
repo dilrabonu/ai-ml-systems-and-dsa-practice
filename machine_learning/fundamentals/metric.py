@@ -108,7 +108,6 @@ print(f"100 m² uy: {model.predict([[100]])[0]:.1f} ming$")
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.datasets import load_breast_cancer
-
 data = load_breast_cancer()
 X, y = data.data, data.target
 
@@ -118,3 +117,14 @@ model.fit(X, y)
 # Birinchi 5 ta feature'ning ahamiyati
 for nom, koef in zip(data.feature_names[:5], model.coef_[0][:5]):
     print(f"{nom}: {koef:.3f}")
+
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+import matplotlib.pyplot as plt
+
+model = DecisionTreeClassifier(max_depth=3, random_state=42)
+model.fit(X, y)
+
+plt.figure(figsize=(15, 8))
+plot_tree(model, feature_names=data.feature_names, 
+          class_names=['malign', 'benign'], filled=True)
+plt.show()
