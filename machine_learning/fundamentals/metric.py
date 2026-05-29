@@ -39,3 +39,44 @@ print(f"MAE:  {mean_absolute_error(y_true, y_pred):.1f} ming$")
 print(f"MSE:  {mean_squared_error(y_true, y_pred):.1f}")
 print(f"RMSE: {np.sqrt(mean_squared_error(y_true, y_pred)):.1f} ming$")
 print(f"R²:   {r2_score(y_true, y_pred):.3f}")
+
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+
+# 1-qadam: avval test'ni AJRATIB QO'YAMIZ
+X_temp, X_test, y_temp, y_test = train_test_split(
+    X, y, test_size=0.15, random_state=42, stratify=y
+)
+
+# 2-qadam: qolganidan train va validation
+X_train, X_val, y_train, y_val = train_test_split(
+    X_temp, y_temp, test_size=0.18, random_state=42, stratify=y_temp
+)
+
+print(f"Train: {len(X_train)}, Val: {len(X_val)}, Test: {len(X_test)}")
+
+# 3-qadam: turli hyperparametr'larni VALIDATION'da sinaymiz
+eng_yaxshi_score = 0
+eng_yaxshi_n = None
+
+for n_trees in [10, 50, 100, 200, 500]:
+    model = RandomForestClassifier(n_estimators=n_trees, random_state=42)
+    model.fit(X_train, y_train)
+    val_score = model.score(X_val, y_val)
+    print(f"n_trees={n_trees}: val_acc={val_score:.3f}")
+    
+    if val_score > eng_yaxshi_score:
+        eng_yaxshi_score = val_score
+        eng_yaxshi_n = n_trees
+
+# 4-qadam: eng yaxshi model'ni TRAIN + VAL da qayta o'qitamiz
+final_model = RandomForestClassifier(n_estimators=eng_yaxshi_n, random_state=42)
+final_model.fit(
+    np.vstack([X_train, X_val]),
+    np.concatenate([y_train, y_val])
+)
+
+# 5-qadam: TEST'da FAQAT BIR MARTA sinaymiz
+test_score = final_model.score(X_test, y_test)
+print(f"\nYakuniy test natija: {test_score:.3f}")
