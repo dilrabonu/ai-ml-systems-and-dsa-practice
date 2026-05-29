@@ -92,3 +92,16 @@ scores = cross_val_score(
 )
 
 print(f"CV F1: {scores.mean():.3f} ± {scores.std():.3f}")
+
+from sklearn.linear_model import LinearRegression
+import numpy as np
+
+# Uy maydoni vs narxi
+X = np.array([[50], [70], [100], [150], [200]])    # m²
+y = np.array([50, 75, 100, 160, 220])              # ming$
+
+model = LinearRegression()
+model.fit(X, y)
+
+print(f"Tenglama: narx = {model.coef_[0]:.2f} × maydon + {model.intercept_:.2f}")
+print(f"100 m² uy: {model.predict([[100]])[0]:.1f} ming$")
