@@ -118,3 +118,13 @@ model.fit(X, y)
 for nom, koef in zip(data.feature_names[:5], model.coef_[0][:5]):
     print(f"{nom}: {koef:.3f}")
 
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+import matplotlib.pyplot as plt
+
+model = DecisionTreeClassifier(max_depth=3, random_state=42)
+model.fit(X, y)
+
+plt.figure(figsize=(15, 8))
+plot_tree(model, feature_names=data.feature_names, 
+          class_names=['malign', 'benign'], filled=True)
+plt.show()
