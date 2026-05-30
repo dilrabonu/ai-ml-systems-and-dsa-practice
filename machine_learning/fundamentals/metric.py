@@ -114,7 +114,6 @@ X, y = data.data, data.target
 model = LogisticRegression(max_iter=5000)
 model.fit(X, y)
 
-# Birinchi 5 ta feature'ning ahamiyati
 for nom, koef in zip(data.feature_names[:5], model.coef_[0][:5]):
     print(f"{nom}: {koef:.3f}")
 
