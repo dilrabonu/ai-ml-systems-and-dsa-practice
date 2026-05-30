@@ -127,3 +127,4 @@ model.fit(X, y)
 plt.figure(figsize=(15, 8))
 plot_tree(model, feature_names=data.feature_names, 
           class_names=['malign', 'benign'], filled=True)
+plt.show()
