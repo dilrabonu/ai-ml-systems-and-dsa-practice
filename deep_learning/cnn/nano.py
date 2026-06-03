@@ -89,3 +89,17 @@ class Block(nn.Module):
         x = x + self.attn(self.ln_1(x))
         x = x + self.mlp(self.ln_2(x))
         return x
+
+# GPT Config settings
+@dataclass
+class GPTConfig:
+    block_size: int = 1024
+    vocab_size: int = 50304
+    n_layer: int = 12
+    n_head: int = 12
+    n_embd: int = 768
+    dropout: float = 0.0
+    bias: bool = True
+
+
+    
