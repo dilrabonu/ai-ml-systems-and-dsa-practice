@@ -159,3 +159,8 @@ class GPT(nn.Module):
             loss = None
 
         return logits, loss 
+
+    def crop_block_size(self, block_size):
+        assert block_size <= self.config.block_size
+        self.config.block_size = block_size
+        
