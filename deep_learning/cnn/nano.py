@@ -178,3 +178,6 @@ class GPT(nn.Module):
             'gpt2-large': dict(n_layer=36, n_head=20, n_embd=1280), #774M
             'gpt2-xl': dict(n_layer=48, n_head=25, n_embd=1600), #1558M
         }[model_type]
+        transposed = ['attn.c_attn.weight', 'attn.c_proj.weight', 'mlp.c_fc.weight', 'mlp.c_proj.weight']
+        ...
+        sd[k].copy_(sd_hf[k].t())
