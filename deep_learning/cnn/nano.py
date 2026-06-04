@@ -146,3 +146,7 @@ class GPT(nn.Module):
 
         tok_emb = self.transformer.wte(idx)
         pos_emb = self.transformer.wpe(pos)
+        x = self.transformer.drop(tok_emb + pos_emb)
+        for block in self.transformer.h:
+            x = block(x)
+        x = self.transformer.ln_f(x)
