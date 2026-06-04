@@ -143,3 +143,6 @@ class GPT(nn.Module):
         b, t = idx.size()
         assert t <= self.config.block_size, f".."
         pos = torch.arange(0, t, dtype=torch.long, device=device)
+
+        tok_emb = self.transformer.wte(idx)
+        pos_emb = self.transformer.wpe(pos)
