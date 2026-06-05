@@ -182,4 +182,5 @@ class GPT(nn.Module):
         ...
         sd[k].copy_(sd_hf[k].t())
 
-    def 
+    def configure_optimizers(self, weight_decay, learning_rate, betas, device_type):
+        param_dict = {pn: p for pn, p in self.named_parameters()}
