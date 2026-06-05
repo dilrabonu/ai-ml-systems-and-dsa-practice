@@ -192,4 +192,5 @@ class GPT(nn.Module):
             {'params': nodecay_params, 'weight_decay': 0.0}
         ]
         ...
-        
+        optimizer = torch.optim.AdamW(optim_groups, lr=learning_rate, betas=betas, **extra_args)
+        return optimizer
