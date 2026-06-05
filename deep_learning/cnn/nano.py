@@ -181,3 +181,5 @@ class GPT(nn.Module):
         transposed = ['attn.c_attn.weight', 'attn.c_proj.weight', 'mlp.c_fc.weight', 'mlp.c_proj.weight']
         ...
         sd[k].copy_(sd_hf[k].t())
+
+    def 
