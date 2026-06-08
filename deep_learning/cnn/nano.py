@@ -208,5 +208,8 @@ class GPT(nn.Module):
     def generate(self, idx, max_new_tokens, temperature=1.0, top_k=None):
         for _ in range(max_new_tokens):
             idx_cond = idx if idx.size(1) <= self.config.block_size else idx[:, -self.config.block_size:]
-            logits, _
+            logits, _ = self(idx_cond)
+            logits = logits[:, -1, :] / temperature
+            if top_k is not None:
+                v, _ = 
 
