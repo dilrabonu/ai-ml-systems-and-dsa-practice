@@ -211,5 +211,9 @@ class GPT(nn.Module):
             logits, _ = self(idx_cond)
             logits = logits[:, -1, :] / temperature
             if top_k is not None:
-                v, _ = 
+                v, _ = torch.topk(logits, min(top_k, logits.size(-1)))
+                logits[logits < v[:, [-1]]] -float('Inf')
+            probs = F.softmax(logits, dim=-1)
+            idx_next = torch.multinomial(probs, num_samples=1)
+            
 
