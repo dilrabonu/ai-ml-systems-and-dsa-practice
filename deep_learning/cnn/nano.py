@@ -196,3 +196,4 @@ class GPT(nn.Module):
         return optimizer
 
     def estimate_mfu(self, fwdbwd_per_iter, dt):
+        N = self.get_num_params()
