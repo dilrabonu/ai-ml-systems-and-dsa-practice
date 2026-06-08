@@ -194,3 +194,5 @@ class GPT(nn.Module):
         ...
         optimizer = torch.optim.AdamW(optim_groups, lr=learning_rate, betas=betas, **extra_args)
         return optimizer
+
+    def estimate_mfu(self, fwdbwd_per_iter, dt):
