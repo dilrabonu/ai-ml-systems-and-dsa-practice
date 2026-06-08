@@ -215,5 +215,6 @@ class GPT(nn.Module):
                 logits[logits < v[:, [-1]]] -float('Inf')
             probs = F.softmax(logits, dim=-1)
             idx_next = torch.multinomial(probs, num_samples=1)
-            
+            idx = torch.cat((idx, idx_next), dim=1)
+        return idx
 
