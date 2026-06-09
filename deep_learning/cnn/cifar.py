@@ -17,4 +17,9 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F 
-from torch.utils.data import DataLoader
+from torch.utils.data import DataLoader   # disturb info to batches
+from torchvision import datasets, transforms # dataset and transformer pictures
+import matplotlib.pyplot as plt 
+import numpy as np 
+
+torch.manual_seed(42)  # every time the same sample
