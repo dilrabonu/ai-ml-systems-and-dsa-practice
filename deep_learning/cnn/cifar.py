@@ -13,3 +13,8 @@
   Texnologiyalar: PyTorch (CNN) + OpenCV (o'z rasmingizni tanish)
   ================================================================================
 """
+# Import libraries
+import torch
+import torch.nn as nn
+import torch.nn.functional as F 
+from torch.utils.data import DataLoader
