@@ -37,5 +37,9 @@ class_name = ['airplane', 'car', 'bird', 'cat', 'deer'
 train_transform = transforms.Compose([
           transforms.RandomCrop(32, padding=4),   # random crop the image to 32*32 in random place, so model learn with different positions
           transforms.RandomHorizontalFlip(), # round the image horizontal in 50% (cat looks at left or right - so learn both positions)
-          
+          transforms.ToTensor(), # Change the image to Tensor and pixels become 0-1
+          #normalize the image with mean and std R, G, B
+          transforms.Normalize((0.4914, 0.4822, 0.4465), # R, G, B mean 
+                               (0.2470, 0.2435, 0.2616)) # R, G, B std
+                               
 ])
