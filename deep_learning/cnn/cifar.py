@@ -27,3 +27,6 @@ torch.manual_seed(42)  # every time the same sample
 # Step 2 Choose the device
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Working device: {device}")
+
+# Step 3
+class_name = ['airplane', 'car', 'bird', 'cat']
