@@ -29,4 +29,5 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Working device: {device}")
 
 # Step 3
-class_name = ['airplane', 'car', 'bird', 'cat']
+class_name = ['airplane', 'car', 'bird', 'cat', 'deer'
+              'dog', 'fog', 'horse', 'ship', 'truck']
