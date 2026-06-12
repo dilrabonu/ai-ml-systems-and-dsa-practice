@@ -34,3 +34,7 @@ class_name = ['airplane', 'car', 'bird', 'cat', 'deer'
 
 # Step 4 Load and transform data
 
+train_transform = transform.Compose([
+          transform.RandomCrop(32, padding=4),   # random crop the image to 32*32 in random place, so model learn with different positions
+          
+])
