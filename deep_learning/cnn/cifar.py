@@ -28,6 +28,9 @@ torch.manual_seed(42)  # every time the same sample
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Working device: {device}")
 
-# Step 3
+# Step 3 Name of classes
 class_name = ['airplane', 'car', 'bird', 'cat', 'deer'
               'dog', 'fog', 'horse', 'ship', 'truck']
+
+# Step 4 Load and transform data
+
