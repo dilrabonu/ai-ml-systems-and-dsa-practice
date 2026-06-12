@@ -41,5 +41,11 @@ train_transform = transforms.Compose([
           #normalize the image with mean and std R, G, B
           transforms.Normalize((0.4914, 0.4822, 0.4465), # R, G, B mean 
                                (0.2470, 0.2435, 0.2616)) # R, G, B std
-                               
+               
+])
+# in Test we don't need data augmentation, we don't change the image but we evaluate only
+# Only we change to Tensor and normalize
+test_transform = transforms.Compose([
+    transforms.ToTensor(),
+    
 ])
