@@ -85,3 +85,13 @@ test_loader = DataLoader(test_dataset, batch_size=128, shuffle=False, num_worker
 # - Max pooling
 # - Dropout
 # Because they help to prevent overfitting and improve generalization
+class CNN(nn.Module):
+  def __init__(self):
+    super().__init__()
+    # 1 Block
+    self.conv1 = nn.Conv2d(in_channels=3, out_channel=32, kernel_size=3, padding=1)
+    # BatchNorm2d: after every conv layer to normalize the output
+    self.bn1 = nn.BatchNorm2d(32)
+    # 2 Block
+    self.conv2 = nn.Conv2d(32, 64, kernel_size=3, padding=1)
+    self.bn2 = nn.BatchNorm2d(64)
