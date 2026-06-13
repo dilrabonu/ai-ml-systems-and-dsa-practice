@@ -74,3 +74,14 @@ print(f"Test samples: {len(test_dataset)}")  # 10000
 # num_workers - number of CPU cores to use for data loading
 train_loader = DataLoader(train_dataset, batch_size=128, shuffle=True, num_workers=2)
 test_loader = DataLoader(test_dataset, batch_size=128, shuffle=False, num_workers=2)
+
+# Step 7 CNN architecture
+
+# We use 3 convolutional blocks
+# Every block has:
+# - Convolutional layer
+# - Batch normalization
+# - ReLU activation
+# - Max pooling
+# - Dropout
+# Because they help to prevent overfitting and improve generalization
