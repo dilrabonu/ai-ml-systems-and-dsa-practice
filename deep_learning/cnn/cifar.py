@@ -32,7 +32,7 @@ print(f"Working device: {device}")
 class_name = ['airplane', 'car', 'bird', 'cat', 'deer'
               'dog', 'fog', 'horse', 'ship', 'truck']
 
-# Step 4 Load and transform data
+# Step 4 Data augmentation
 
 train_transform = transforms.Compose([
           transforms.RandomCrop(32, padding=4),   # random crop the image to 32*32 in random place, so model learn with different positions
@@ -50,3 +50,5 @@ test_transform = transforms.Compose([
     transforms.Normalize((0.4914, 0.4822, 0.4465),
                         (0.2470, 0.2435, 0.2616))
 ])
+
+# Step 5 Load the dataset
