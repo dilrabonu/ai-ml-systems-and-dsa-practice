@@ -95,3 +95,8 @@ class CNN(nn.Module):
     # 2 Block
     self.conv2 = nn.Conv2d(32, 64, kernel_size=3, padding=1)
     self.bn2 = nn.BatchNorm2d(64)
+    # 3 Block
+    self.conv3 = nn.Conv2d(64, 128, kernel_size=3, padding=1)
+    self.bn3 = nn.BatchNorm2d(128)
+
+    
