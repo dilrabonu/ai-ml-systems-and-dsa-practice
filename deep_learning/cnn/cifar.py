@@ -65,3 +65,6 @@ test_dataset = datasets.CIFAR10(
     download=True,
     transform=test_transform # without augmentation
 )
+
+print(f"Train samples: {len(train_dataset)}")  # 50000
+print(f"Test samples: {len(test_dataset)}")  # 10000
