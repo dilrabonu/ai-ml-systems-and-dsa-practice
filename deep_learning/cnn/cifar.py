@@ -58,3 +58,10 @@ train_dataset = datasets.CIFAR10(
     download=True,  # if there is no data it will download
     transform=train_transform  # with augmentation
 )
+
+test_dataset = datasets.CIFAR10(
+    root="./data",
+    train=False, # test part(10,000)
+    download=True,
+    transform=test_transform # without augmentation
+)
