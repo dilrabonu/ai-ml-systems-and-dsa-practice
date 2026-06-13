@@ -68,3 +68,9 @@ test_dataset = datasets.CIFAR10(
 
 print(f"Train samples: {len(train_dataset)}")  # 50000
 print(f"Test samples: {len(test_dataset)}")  # 10000
+
+# Step 6 Dataloader
+# batch_size=128 - optimal batch size for CIFAR-10
+# num_workers - number of CPU cores to use for data loading
+train_loader = DataLoader(train_dataset, batch_size=128, shuffle=True, num_workers=2)
+test_loader = DataLoader(test_dataset, batch_size=128, shuffle=False, num_workers=2)
