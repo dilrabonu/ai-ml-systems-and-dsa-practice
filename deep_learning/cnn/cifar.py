@@ -52,3 +52,9 @@ test_transform = transforms.Compose([
 ])
 
 # Step 5 Load the dataset
+train_dataset = datasets.CIFAR10(
+    root=".data",
+    train=True,  # only train part (50,000)
+    download=True,  # if there is no data it will download
+    transform=train_transform  # with augmentation
+)
