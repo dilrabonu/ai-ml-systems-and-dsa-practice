@@ -109,4 +109,10 @@ class CNN(nn.Module):
 
     # Dropout
     self.dropout = nn.Dropout(0.5)
+
+  def forward(self, x):
+    # in : (batch, 3, 32, 32) - color images
+    # every block: conv -> BatchNorm -> ReLU -> pool
+    # Order is important: conv, normalize, activation, pool
+    
     
