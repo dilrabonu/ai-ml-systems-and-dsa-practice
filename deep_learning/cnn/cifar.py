@@ -120,4 +120,10 @@ class CNN(nn.Module):
 
     x = x.view(x.size(0), -1)
 
+    x = self.relu(self.fc1(x)) #(batch, 256)
+    x = self.dropout(x)  # overfitting prevention
+    x = self.fc2(x)
+
+    return x
+
     
