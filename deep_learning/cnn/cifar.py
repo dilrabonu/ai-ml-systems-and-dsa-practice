@@ -126,4 +126,8 @@ class CNN(nn.Module):
 
     return x
 
+model = CNN().to(device)
+print(model)
+print(f"Total parameters: {sum(p.numel() for p in model.parameters()):,}")
+
     
