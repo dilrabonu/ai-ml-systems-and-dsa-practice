@@ -117,6 +117,7 @@ class CNN(nn.Module):
     x = self.pool(self.relu(self.bn1(self.conv1(x))))  # (batch, 32, 16, 16)
     x = self.pool(self.relu(self.bn2(self.conv2(x))))  # (batch, 64, 8, 8)
     x = self.pool(self.relu(self.bn3(self.conv3(x))))  # (batch, 128, 4, 4)
-     
+
+    x = x.view(x.size(0), -1)
 
     
