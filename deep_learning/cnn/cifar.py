@@ -114,5 +114,7 @@ class CNN(nn.Module):
     # in : (batch, 3, 32, 32) - color images
     # every block: conv -> BatchNorm -> ReLU -> pool
     # Order is important: conv, normalize, activation, pool
+    x = self.pool(self.relu(self.bn1(self.conv1(x))))  # (batch, 32, 16, 16)
+    x = self.pool(self.relu(self.bn2(self.conv2(x))))  # (batch, 64, 8, 8)
     
     
