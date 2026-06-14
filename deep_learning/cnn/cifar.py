@@ -116,5 +116,7 @@ class CNN(nn.Module):
     # Order is important: conv, normalize, activation, pool
     x = self.pool(self.relu(self.bn1(self.conv1(x))))  # (batch, 32, 16, 16)
     x = self.pool(self.relu(self.bn2(self.conv2(x))))  # (batch, 64, 8, 8)
-    
+    x = self.pool(self.relu(self.bn3(self.conv3(x))))  # (batch, 128, 4, 4)
+     
+
     
