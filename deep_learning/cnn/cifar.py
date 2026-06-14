@@ -104,5 +104,9 @@ class CNN(nn.Module):
 
     self.fc1 = nn.Linear(128 * 4 * 4, 256)
     self.fc2 = nn.Linear(256, 10) # 10 classes
+    
+    self.relu = nn.ReLU()
 
+    # Dropout
+    self.dropout = nn.Dropout(0.5)
     
