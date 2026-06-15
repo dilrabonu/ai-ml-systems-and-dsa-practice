@@ -138,4 +138,4 @@ optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=1e-4)
 # Scheduler - reduce learning rate when loss stops improving
 # At first fast learn, at the end slow learn
 # StepLR: reduce LR by factor of 0.5 
-scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, patience=3, factor=0.5)
+scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.5)
