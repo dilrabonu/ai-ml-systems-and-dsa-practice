@@ -130,4 +130,4 @@ model = CNN().to(device)
 print(model)
 print(f"Total parameters: {sum(p.numel() for p in model.parameters()):,}")
 
-    
+# Step 8 Loss, Optimizer, Scheduler
