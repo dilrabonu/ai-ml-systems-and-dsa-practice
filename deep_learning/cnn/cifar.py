@@ -131,3 +131,7 @@ print(model)
 print(f"Total parameters: {sum(p.numel() for p in model.parameters()):,}")
 
 # Step 8 Loss, Optimizer, Scheduler
+loss_fn = nn.CrossEntropyLoss()  # for many classes
+
+# Adam optimizer, weight_decay, 
+optimizer = torch.
