@@ -134,4 +134,4 @@ print(f"Total parameters: {sum(p.numel() for p in model.parameters()):,}")
 loss_fn = nn.CrossEntropyLoss()  # for many classes
 
 # Adam optimizer, weight_decay, 
-optimizer = torch.
+optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=1e-4)
