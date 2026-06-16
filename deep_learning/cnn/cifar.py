@@ -162,3 +162,5 @@ def training(model, loader, loss_fn, optimizer, device):
         total_loss += loss.item()
         correct += (prediction.argmax(1) == labels).sum().item()
         total += labels.size(0)
+
+    return total_loss / len(loader), 100 * correct / total
