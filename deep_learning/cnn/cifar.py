@@ -147,4 +147,9 @@ def training(model, loader, loss_fn, optimizer, device):
     total_loss = 0
     correct = 0
     total = 0
-    
+
+    for images, labels in loader:
+        images, labels = images.to(device), labels.to(device)
+
+        # 5 step training process
+        prediction = model(images)
