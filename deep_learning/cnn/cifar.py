@@ -164,3 +164,5 @@ def training(model, loader, loss_fn, optimizer, device):
         total += labels.size(0)
 
     return total_loss / len(loader), 100 * correct / total
+
+# Step 10 Evaluation
