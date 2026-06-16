@@ -154,4 +154,11 @@ def training(model, loader, loss_fn, optimizer, device):
         # 5 step training process
         prediction = model(images)  # prediction
         loss = loss_fn(prediction, labels) # loss calculation
-        
+        optimizer.zero_grad() # reset gradients
+        loss.backward() # calculate gradients
+        optimizer.step() # update weights
+
+        # Statistics
+        total_loss += loss.item()
+        correct += (prediction.argmax(1) == labels).sum().item()
+        total += labels.size(0)
