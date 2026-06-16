@@ -152,4 +152,6 @@ def training(model, loader, loss_fn, optimizer, device):
         images, labels = images.to(device), labels.to(device)
 
         # 5 step training process
-        prediction = model(images)
+        prediction = model(images)  # prediction
+        loss = loss_fn(prediction, labels) # loss calculation
+        
