@@ -141,3 +141,10 @@ optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=1e-4)
 scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.5)
 
 # Step 9 Training 
+
+def training(model, loader, loss_fn, optimizer, device):
+    model.train()    # training process(dropout, batchnorm are active)
+    total_loss = 0
+    correct = 0
+    total = 0
+    
