@@ -166,3 +166,5 @@ def training(model, loader, loss_fn, optimizer, device):
     return total_loss / len(loader), 100 * correct / total
 
 # Step 10 Evaluation
+def evaluation(model, loader, device):
+  
