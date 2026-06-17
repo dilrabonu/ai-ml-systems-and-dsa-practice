@@ -180,5 +180,7 @@ def evaluation(model, loader, device):
 
     return 100 * correct / total
 
+# step 11 
+
 
 
