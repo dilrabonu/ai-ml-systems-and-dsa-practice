@@ -171,5 +171,6 @@ def evaluation(model, loader, device):
     correct = 0
     total = 0
     with torch.no_grad(): # gradient do not need to calculate - fast and a little memory
-      
+        for images, labels in loader:
+
 
