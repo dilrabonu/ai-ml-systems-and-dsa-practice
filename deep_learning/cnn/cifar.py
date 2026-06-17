@@ -174,6 +174,8 @@ def evaluation(model, loader, device):
         for images, labels in loader:
             images, labels = images.to(device), labels.to(device)
             prediction = model(images)
-            
+            appro = prediction.argmax(dim=1)
+            correct += (appro == labels).sum().item()
+
 
 
