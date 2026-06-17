@@ -176,6 +176,9 @@ def evaluation(model, loader, device):
             prediction = model(images)
             appro = prediction.argmax(dim=1)
             correct += (appro == labels).sum().item()
+            total += labels.size(0)
+
+    return 100 * correct / total
 
 
 
