@@ -167,4 +167,9 @@ def training(model, loader, loss_fn, optimizer, device):
 
 # Step 10 Evaluation
 def evaluation(model, loader, device):
-  
+    model.eval()   # evaluation (dropout and batchnorm switch off)
+    correct = 0
+    total = 0
+    with torch.no_grad(): # gradient do not need to calculate - fast and a little memory
+      
+
