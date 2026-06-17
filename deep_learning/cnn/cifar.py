@@ -172,5 +172,8 @@ def evaluation(model, loader, device):
     total = 0
     with torch.no_grad(): # gradient do not need to calculate - fast and a little memory
         for images, labels in loader:
+            images, labels = images.to(device), labels.to(device)
+            prediction = model(images)
+            
 
 
