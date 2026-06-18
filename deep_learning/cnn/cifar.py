@@ -186,6 +186,6 @@ EPOCHS = 20
 
 train_loss_history = []
 train_acc_history = []
-
+test_acc_history = []
 
 
