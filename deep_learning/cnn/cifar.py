@@ -200,5 +200,4 @@ for epoch in range(1, EPOCHS + 1):
     test_acc_history.append(test_acc)
 
     print(f"Epoch {epoch:2d}/{EPOCHS} | Loss: {train_loss:.3d} |"
-          
-    ")
+          f"Train accuracy: {tarin_acc:.2d}% | Test accuracy: {test_acc:.2f}%")
