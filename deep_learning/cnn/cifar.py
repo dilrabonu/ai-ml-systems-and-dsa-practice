@@ -181,6 +181,8 @@ def evaluation(model, loader, device):
     return 100 * correct / total
 
 # step 11 
+# We need more epoch for this project because it is complex
+
 
 
 
