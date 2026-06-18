@@ -201,3 +201,4 @@ for epoch in range(1, EPOCHS + 1):
 
     print(f"Epoch {epoch:2d}/{EPOCHS} | Loss: {train_loss:.3d} |"
           f"Train accuracy: {tarin_acc:.2d}% | Test accuracy: {test_acc:.2f}%")
+print("------- Training Finished----\n")
