@@ -185,6 +185,7 @@ def evaluation(model, loader, device):
 EPOCHS = 20
 
 train_loss_history = []
+train_acc_history = []
 
 
 
