@@ -182,7 +182,7 @@ def evaluation(model, loader, device):
 
 # step 11 
 # We need more epoch for this project because it is complex
-
+EPOCHS = 20
 
 
 
