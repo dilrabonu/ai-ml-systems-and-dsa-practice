@@ -197,4 +197,8 @@ for epoch in range(1, EPOCHS + 1):
 
     train_loss_history.append(train_loss)
     train_acc_history.append(train_acc)
-    test_acc_history.append
+    test_acc_history.append(test_acc)
+
+    print(f"Epoch {epoch:2d}/{EPOCHS} | Loss: {train_loss:.3d} |"
+          
+    ")
