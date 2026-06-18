@@ -191,4 +191,6 @@ test_acc_history = []
 print("\--- Training started---")
 for epoch in range(1, EPOCHS + 1):
     train_loss, train_acc = training(model, train_loader, loss_fn, optimizer, device)
+    test_acc = evaluation(model, test_loader, device)
+    scheduler.step()   # after every epoch the learning rate update
     
