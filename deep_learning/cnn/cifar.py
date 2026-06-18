@@ -184,5 +184,7 @@ def evaluation(model, loader, device):
 # We need more epoch for this project because it is complex
 EPOCHS = 20
 
+train_loss_history = []
+
 
 
