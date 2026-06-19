@@ -204,3 +204,8 @@ for epoch in range(1, EPOCHS + 1):
 print("------- Training Finished----\n")
 
 # Step 12
+# Train and test accuracy visualization
+
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
+
+ax1.plot(train_loss_history, label= "Training Loss", color="crimson")
