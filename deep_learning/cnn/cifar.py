@@ -209,3 +209,4 @@ print("------- Training Finished----\n")
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
 
 ax1.plot(train_loss_history, label= "Training Loss", color="crimson")
+ax1.set_title("Loss reduction"); ax1.set_xlabel("Epoch"); ax1.set_ylabel("Loss")
