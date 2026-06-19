@@ -212,3 +212,5 @@ ax1.plot(train_loss_history, label= "Training Loss", color="crimson")
 ax1.set_title("Loss reduction"); ax1.set_xlabel("Epoch"); ax1.set_ylabel("Loss")
 ax1.legend(); ax1.grid(True)
 
+ax2.plot(train_acc_history, label="Train accuracy", color="blue")
+ax2.plot(test_acc_history, label="Test accuracy", color="green")
