@@ -217,3 +217,5 @@ ax2.plot(test_acc_history, label="Test accuracy", color="green")
 ax2.set_title("Accuracy change"); ax2.set_xlabel("Epoch"); ax2.set_ylabel("Accuracy %")
 ax2.legend(); ax2.grid(True)
 
+plt.tight_layout()
+plt.savefig("cifar_training.png", dpi=100)
