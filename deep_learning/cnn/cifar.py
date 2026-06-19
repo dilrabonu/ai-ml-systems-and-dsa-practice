@@ -214,3 +214,4 @@ ax1.legend(); ax1.grid(True)
 
 ax2.plot(train_acc_history, label="Train accuracy", color="blue")
 ax2.plot(test_acc_history, label="Test accuracy", color="green")
+ax2.set_title("Accuracy change"); ax2.set_xlabel("Epoch"); ax2.set_ylabel("Accuracy %")
