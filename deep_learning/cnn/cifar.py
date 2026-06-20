@@ -225,4 +225,5 @@ plt.show()
 model.eval()
 images, labels = next(iter(test_loader))
 images_dev = images.to(device)
-
+with torch.no_grad(img):
+    predictions = model(images_dev).argmax(dim=1).cpu()
