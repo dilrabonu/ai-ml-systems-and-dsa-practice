@@ -220,3 +220,5 @@ ax2.legend(); ax2.grid(True)
 plt.tight_layout()
 plt.savefig("cifar_training.png", dpi=100)
 plt.show()
+
+# Step 13
