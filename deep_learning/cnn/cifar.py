@@ -230,4 +230,6 @@ with torch.no_grad():
 
 def res_normalize(img):
     mean = np.array([0.4914, 0.4822, 0.4465])
-    std = 
+    std = np.array([0.2470, 0.2435, 0.2616])
+    img = img.numpy().transpose(1, 2, 0)  # (C, H, W) -> (H, W, C)
+    
