@@ -221,4 +221,6 @@ plt.tight_layout()
 plt.savefig("cifar_training.png", dpi=100)
 plt.show()
 
-# Step 13
+# Step 13 Predict Visualization
+model.eval()
+
