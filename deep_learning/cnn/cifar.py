@@ -234,4 +234,8 @@ def res_normalize(img):
     img = img.numpy().transpose(1, 2, 0)  # (C, H, W) -> (H, W, C)
     img = std * img + mean    # denormalize
     return np.clip(img, 0, 1)  # 0-1 hold
+fig, axes = plt.subplots(2, 5, figsize=(14, 6))
+for i, ax in enumerate(axes.flat):
+    ax.imshow(res_normalize(images[i]))
+    color = "green" if predictions[i] == labels[i] else "red"
     
