@@ -223,4 +223,6 @@ plt.show()
 
 # Step 13 Predict Visualization
 model.eval()
+images, labels = next(iter(test_loader))
+images_dev = images.to(device)
 
