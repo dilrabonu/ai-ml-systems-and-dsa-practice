@@ -242,5 +242,5 @@ for i, ax in enumerate(axes.flat):
                  f"True: {class_names[labels[i]]}", color=color, fontsize=9)
     ax.axis("off")
 plt.tight_layout()
-
+plt.savefig("cifar_result.png", dpi=100)
 plt.show()
