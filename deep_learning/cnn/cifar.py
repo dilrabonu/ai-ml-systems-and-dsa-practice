@@ -225,5 +225,9 @@ plt.show()
 model.eval()
 images, labels = next(iter(test_loader))
 images_dev = images.to(device)
-with torch.no_grad(img):
+with torch.no_grad():
     predictions = model(images_dev).argmax(dim=1).cpu()
+
+def res_normalize(img):
+    mean = np.array([0.4914, 0.4822, 0.4465])
+    std = 
