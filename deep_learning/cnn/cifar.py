@@ -239,7 +239,8 @@ for i, ax in enumerate(axes.flat):
     ax.imshow(res_normalize(images[i]))
     color = "green" if predictions[i] == labels[i] else "red"
     ax.set_title(f"Prediction: {class_names[predictions[i]]}\n"
-                 f"True: {class_names[labels[i]]}", color=color)
+                 f"True: {class_names[labels[i]]}", color=color, fontsize=9)
     ax.axis("off")
 plt.tight_layout()
+
 plt.show()
