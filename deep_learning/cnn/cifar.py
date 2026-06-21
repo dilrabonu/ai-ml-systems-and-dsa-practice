@@ -247,5 +247,5 @@ plt.show()
 
 # Step 14 Save the model
 
-torch.save(model)
+torch.save(model.state_dict(), "cifar_model.pth")
 
