@@ -245,5 +245,7 @@ plt.tight_layout()
 plt.savefig("cifar_result.png", dpi=100)
 plt.show()
 
-# Step 14
+# Step 14 Save the model
+
+torch.save
 
