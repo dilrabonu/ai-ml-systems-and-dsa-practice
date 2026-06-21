@@ -247,5 +247,5 @@ plt.show()
 
 # Step 14 Save the model
 
-torch.save
+torch.save(model)
 
