@@ -251,4 +251,5 @@ torch.save(model.state_dict(), "cifar_model.pth")
 print("Model 'cifar_model.pth' saved" )
 
 # Step 15
+# This step helps to cennect OpenCv and PyTorch and we can take images from webcam and train the model
 
