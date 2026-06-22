@@ -267,4 +267,8 @@ def predict_image(image_path, model, device):
 
     # Resize 32*32
     img = cv2.resize(img, (32, 32))
+
+    # 0-1 ga normalize
+    img = img.astype(np.float32) / 255.0
+
     
