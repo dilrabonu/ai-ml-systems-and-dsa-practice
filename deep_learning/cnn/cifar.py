@@ -263,4 +263,8 @@ def predict_image(image_path, model, device):
     img = cv2.imread(image_path)  #BGR format
 
     # BGR -> RGB (OpenCV BGR, PyTorch RGB - important)
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
+    # Resize 32*32
+    img = cv2.resize(img, (32, 32))
     
