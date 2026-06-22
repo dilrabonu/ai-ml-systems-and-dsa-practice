@@ -270,5 +270,9 @@ def predict_image(image_path, model, device):
 
     # 0-1 ga normalize
     img = img.astype(np.float32) / 255.0
-
+    
+    # CIFAR normalize
+    mean = np.array([0.4914, 0.4822, 0.4465])
+    std = np.array([0.2470, 0.2435, 0.2616])
+    img = (img - mean) / std
     
