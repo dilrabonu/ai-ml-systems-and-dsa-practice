@@ -253,3 +253,6 @@ print("Model 'cifar_model.pth' saved" )
 # Step 15
 # This step helps to cennect OpenCv and PyTorch and we can take images from webcam and train the model
 
+# Images will be colour
+# 32 * 32
+# 3 Layers normalization
