@@ -256,3 +256,7 @@ print("Model 'cifar_model.pth' saved" )
 # Images will be colour
 # 32 * 32
 # 3 Layers normalization
+
+def predict_image(image_path, model, device):
+    import cv2
+    
