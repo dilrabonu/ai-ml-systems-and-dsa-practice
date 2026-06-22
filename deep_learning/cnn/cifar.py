@@ -260,5 +260,7 @@ print("Model 'cifar_model.pth' saved" )
 def predict_image(image_path, model, device):
     import cv2
     # Train the image with colour
-    img = cv2.imread(image_path)  #BRG format
+    img = cv2.imread(image_path)  #BGR format
+
+    # BGR -> RGB (OpenCV BGR, PyTorch RGB - important)
     
