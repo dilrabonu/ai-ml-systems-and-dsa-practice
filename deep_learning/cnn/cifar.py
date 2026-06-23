@@ -275,4 +275,7 @@ def predict_image(image_path, model, device):
     mean = np.array([0.4914, 0.4822, 0.4465])
     std = np.array([0.2470, 0.2435, 0.2616])
     img = (img - mean) / std
+
+    # 
+    img =
     
