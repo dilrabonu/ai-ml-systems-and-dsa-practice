@@ -279,4 +279,5 @@ def predict_image(image_path, model, device):
     # (H, W, C) -> (C, H, W) - PyTorch
     img = img.transpose(2, 0, 1)
     
-    # Change to Tensor + batch ()
+    # Change to Tensor + batch (C, H, W) -> (1, C, H, W)
+    tensor = torch.FloatTensor(img).unsqueeze(0).to(device)
