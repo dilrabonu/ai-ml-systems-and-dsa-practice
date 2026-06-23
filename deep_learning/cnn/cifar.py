@@ -285,4 +285,8 @@ def predict_image(image_path, model, device):
     # Predict
     model.eval()
     with torch.no_grad():
+        exit = model(tensor)
+        class = exit.argmax(dim=1).item()
+        trust = F.softmax(exit, dim=1).max().item() * 100
         
+
