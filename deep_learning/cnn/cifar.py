@@ -279,3 +279,4 @@ def predict_image(image_path, model, device):
     # (H, W, C) -> (C, H, W) - PyTorch
     img = img.transpose(2, 0, 1)
     
+    # Change to Tensor + batch ()
