@@ -281,3 +281,8 @@ def predict_image(image_path, model, device):
     
     # Change to Tensor + batch (C, H, W) -> (1, C, H, W)
     tensor = torch.FloatTensor(img).unsqueeze(0).to(device)
+
+    # Predict
+    model.eval()
+    with torch.no_grad():
+        
