@@ -276,6 +276,6 @@ def predict_image(image_path, model, device):
     std = np.array([0.2470, 0.2435, 0.2616])
     img = (img - mean) / std
 
-    # 
+    # (H, W, C) -> (C, H, W) - PyTorch
     img = img.transpose(2, 0, 1)
     
