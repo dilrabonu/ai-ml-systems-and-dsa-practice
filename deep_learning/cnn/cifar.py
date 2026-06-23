@@ -277,5 +277,5 @@ def predict_image(image_path, model, device):
     img = (img - mean) / std
 
     # 
-    img =
+    img = img.transpose(2, 0, 1)
     
