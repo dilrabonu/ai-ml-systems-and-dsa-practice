@@ -289,6 +289,7 @@ def predict_image(image_path, model, device):
         class_index = exit.argmax(dim=1).item()
         trust = F.softmax(exit, dim=1).max().item() * 100
         
-    
+    print(f"Class: {class_name[class_index]}, Trust: {trust:.2f}%")
+    return class_name[class_index]
 
 
